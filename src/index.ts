@@ -202,8 +202,8 @@ authTokenCommand
  * Create Auth Token Command
  *
  * This command creates a new authentication token for the user.
- * Locally:    npm run dev -- token create -e <email> -p <password> -n <name>
- * Production: tunnel token create -e <email> -p <password> -n <name>
+ * Locally:    npm run dev -- token create --email <email> --password <password> --name <name>
+ * Production: tunnel token create --email <email> --password <password> --name <name>
  */
 authTokenCommand
     .command('create')
