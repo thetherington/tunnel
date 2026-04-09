@@ -74,8 +74,6 @@ export class SocketIOHandler {
                 );
             }
         });
-
-        resolve();
     }
 
     private async handleMessage(message: TunnelMessage): Promise<void> {

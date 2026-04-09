@@ -73,10 +73,10 @@ program
             // Keep the process running until it is terminated
             process.stdin.resume();
         } catch (error) {
-            console.error(
-                chalk.red('Failed to establish tunnel connection:'),
-                error,
-            );
+            console.error(chalk.red('Error connecting to tunnel server'));
+            if (error instanceof Error) {
+                console.error(chalk.red(error.message));
+            }
             process.exit(1);
         }
     });
