@@ -1,3 +1,4 @@
+import { AGENT_VERSION } from '@app/config';
 import {
     ConnectMessage,
     MessageType,
@@ -89,7 +90,7 @@ export function sendConnectMessage(
     const connectMessage = createMessage<ConnectMessage>(MessageType.CONNECT, {
         token: options.token,
         requestedSubdomain: options.subdomain,
-        agentVersion: '1.0.0',
+        agentVersion: AGENT_VERSION!,
         localPort: options.localPort,
         requestCount: 0,
     });

@@ -32,11 +32,13 @@ export class SocketIOHandler {
             sendConnectMessage(this.options, this.socket);
         });
 
+        // Listen for messages from the server and handle them accordingly
         this.socket.on('message', (data: string) => {
             try {
                 const message = parseMessage(data);
                 this.handleMessage(message);
 
+                // If we receive a CONNECT_ACK or CONNECT message and we're not already marked as connected, set the connection state to true
                 if (
                     (message.type === MessageType.CONNECT ||
                         message.type === MessageType.CONNECT_ACK) &&

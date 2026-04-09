@@ -3,5 +3,5 @@ export interface TunnelClientOptions {
     localPort: number;
     subdomain: string;
     token?: string;
-    reconnect: boolean;
+    reconnect?: boolean;
 }

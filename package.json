@@ -1,26 +1,73 @@
 {
-  "name": "tunnl-agent-cli",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^1.14.0",
-    "chalk": "^5.6.2",
-    "commander": "^14.0.3",
-    "dotenv": "^17.4.1",
-    "socket.io-client": "^4.8.3",
-    "typescript-transform-paths": "^3.5.6"
-  },
-  "devDependencies": {
-    "ts-node": "^10.9.2",
-    "tsc-alias": "^1.8.16",
-    "tsconfig-paths": "^4.2.0",
-    "typescript": "^6.0.2"
-  }
+    "name": "@thetherington/tunnl-cli",
+    "version": "1.0.0",
+    "description": "A powerful CLI tool to expose your local services to the internet via secure tunnels",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/esm/index.d.ts",
+    "bin": {
+        "tunnel": "./dist/cjs/index.js",
+        "tunnl": "./dist/cjs/index.js"
+    },
+    "scripts": {
+        "dev": "nodemon -r tsconfig-paths/register src/index.ts",
+        "build:esm": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+        "build:cjs": "tsc --project tsconfig.cjs.json && tsc-alias -p tsconfig.cjs.json",
+        "build": "npm run build:esm && npm run build:cjs && node scripts/copy-package.js",
+        "prepublishOnly": "npm run build",
+        "start": "node ./dist/cjs/index.js",
+        "lint": "eslint src/**/*.ts"
+    },
+    "keywords": [
+        "tunnel",
+        "ngrok",
+        "localtunnel",
+        "proxy",
+        "expose",
+        "localhost",
+        "http-tunnel",
+        "dev-tools",
+        "cli"
+    ],
+    "author": "Tom Hetherington",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/thetherington/tunnel.git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com",
+        "@thetherington:registry": "https://npm.pkg.github.com"
+    },
+    "bugs": {
+        "url": "https://github.com/thetherington/tunnel/issues"
+    },
+    "homepage": "https://github.com/thetherington/tunnel#readme",
+    "engines": {
+        "node": ">=22.16.0"
+    },
+    "files": [
+        "dist",
+        "src"
+    ],
+    "exports": {
+        ".": {
+            "import": "./src/index.js",
+            "require": "./src/index.js"
+        }
+    },
+    "dependencies": {
+        "axios": "^1.14.0",
+        "chalk": "^5.6.2",
+        "commander": "^14.0.3",
+        "dotenv": "^17.4.1",
+        "socket.io-client": "^4.8.3",
+        "typescript-transform-paths": "^3.5.6"
+    },
+    "devDependencies": {
+        "ts-node": "^10.9.2",
+        "tsc-alias": "^1.8.16",
+        "tsconfig-paths": "^4.2.0",
+        "typescript": "^6.0.2"
+    }
 }
