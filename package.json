@@ -1,6 +1,6 @@
 {
     "name": "@thetherington/tunnl-cli",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A powerful CLI tool to expose your local services to the internet via secure tunnels",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
