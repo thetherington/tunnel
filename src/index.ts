@@ -31,8 +31,6 @@ program
     .option('--server <url>', 'Tunnel Server URL', DEFAULT_TUNNEL_SERVER)
     .option('--no-reconnect', 'Disable automatic reconnection')
     .action(async (port: string, options: any) => {
-        console.log(options);
-
         const localPort = parseInt(port, 10);
         if (isNaN(localPort) || localPort <= 0 || localPort > 65535) {
             console.error(chalk.red('Error: Invalid local port number'));

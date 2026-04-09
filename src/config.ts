@@ -10,7 +10,7 @@ const SERVER_URL =
 const APP_AGENT_VERSION =
     process.env.NODE_ENV === 'development'
         ? process.env.AGENT_VERSION
-        : '1.0.2';
+        : '1.0.3';
 
 export const DEFAULT_TUNNEL_SERVER = SERVER_URL;
 export const AGENT_VERSION = APP_AGENT_VERSION;
